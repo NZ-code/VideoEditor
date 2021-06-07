@@ -1,0 +1,69 @@
+.\" Someone tell emacs that this is an -*- nroff -*- source file.
+.\" Copyright 1997, 1998, 1999 Guy Maor.
+.\" Adduser and this manpage are copyright 1995 by Ted Hajek,
+.\" With much borrowing from the original adduser copyright 1994 by
+.\" Ian Murdock.
+.\" This is free software; see the GNU General Public License version
+.\" 2 or later for copying conditions.  There is NO warranty.
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH big_script.sh "wersja 3.118ubuntu2" "Debian GNU/Linux" 
+.SH NAZWA
+big_script.sh \- simple video player
+.SH SKŁADNIA
+\fBbig_script.sh \fP [opcje] 
+.SH OPIS
+.PP
+bid_script.sh - jest to prosty video editor.Ten editor umozliwia :konvertacja w audio w formacie
+avi,skalowac rozdzielczosc,"video cut", dodawanie napisow  w formacie srt, dodaj scizke dzwiekowa
+ f fomatach: -avi -mp3 , dodawanie znaka wodnego w formacie  -png,  rzut ekranu.
+
+
+Domyślnie pliki zostaja stworzone w tym samym folderze w ktorym sa pliki rzrodlowe.
+Wszystkie funkcje edytowe sa w menu graficznym.Plik video jest wybrany lub za pomoca opcje -f
+lub w menu graficznym.Ten plik zostaje dopoki nie bedzie wybrany nowy.
+
+Zeby zrobic screenshot lub "cut video " trzeba nacisnac klawisz 'q'.
+
+Krotki opis.
+1.Nazwa pliku:
+Mozna wybrac nowa nazwe plika lub zmienic.
+2. Konvertacja w audio - avi
+Stworzenie audio w formacie avi o tej samej nazwe.
+3. Skalowac rozdzielczosc
+Skalownie rozdielczosci w procentach.W nazwe plika bedzie wymieniony nowy format.
+4. Cut video
+Za pomoca klawiszy 'q' wybierasz dwa punkta na pliku video.
+W pliku bedzie slowo '_cut'.
+5. Dodaj napisy - srt
+Wybierasz napisy w formacie srt.PLik zostanie utworzony w formacie mkv.
+W nazwie nowego pliku bedzie dodane '_sub'.
+6. Dodaj scizke dzwiekowa -avi -mp3"
+Dodawanie sciezki w formacie avi lub mp3.
+W pliku bedzie slowo '_audio'.
+7. Dodaj znak wodny -png
+Dodawanie znaka wodneho w formacie png.
+W pliku bedzie slowo '_watemark'.
+8. Zrob screenshot"
+Nacisniecie klawiszy 'q'.
+W pliku bedzie slowo '_screenshot' w formacie png.
+9.PLAY
+odtwarza viedo dowolnego formata.
+10.END
+koniec programu.
+.SH OPCJE
+.TP 
+\fB\-h HELP\fP
+Wyswietla text pomocy.
+.TP 
+\fB\-v VERSION\fP
+Wyswietla versje.
+.TP 
+\fB\-f [nazwa plika]\fP
+Dodawanie plika nad ktorym beda robione operacji.
+
+
+.SH "PRAWA AUTORSKIE"

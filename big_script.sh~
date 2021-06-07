@@ -1,0 +1,64 @@
+# Author           : Imie Nazwisko ( email )
+# Created On       : data
+# Last Modified By : Imie Nazwisko ( email )
+# Last Modified On : data 
+# Version          : wersja
+#
+# Description      :
+# Opis
+#
+# Licensed under GPL (see /usr/share/common-licenses/GPL for more details
+# or contact # the Free Software Foundation for a copy)
+
+#!/bin/bash
+OPT=0
+while [ "$OPT" != 10 ]
+do
+    M1="1. Nazwa pliku: $NAZWA"
+    M2="2. Konvertacja w mp3"
+    M3="3. Zmien rozdzielczosc"
+    M4="4. Przetnij"
+    M5="5. Dodaj napisy"
+    M6="6. Dodaj scizke dzwiekowa"
+    M7="7. Dodaj znak wodny"
+    M8="8. zrob screenshot"
+    M9="9.PLAY"
+    M10="10.END"
+    MENU=("$M1" "$M2" "$M3" "$M4" "$M5" "$M6" "$M7" "$M8" "$M9" "$M10")
+    OPT=$(zenity --list --column=MENU "${MENU[@]}" --height 700)
+    case "$OPT" in
+	$M1)
+	    NAZWA=$(zenity --entry --title "PLAYER" --text "Podaj nazwe pliku: ")
+	    NAZWA_FORMATU="${NAZWA##*.}"
+	    NAZWA_PLIKU="${NAZWA%.*}"
+	    echo $NAZWA_PLIKU
+	   ;;
+	$M2)
+	    if [ -n "$NAZWA" ]; then
+		
+		ffmpeg -i $NAZWA "$NAZWA_PLIKU".avi
+	    else
+		zenity --error --text "Nazwa pliku jest pusta"
+	    fi
+	    ;;
+	$M3)
+	    WIDTH=$(zenity --entry --title "ROZDZIELCZOSC" --text "Wpisz szerokosc: ")
+	    HEIGHT=$(zenity --entry --title "ROZDZIELCZOSC" --text "Wpisz wysokosc: ")
+	    if [ -n "$NAZWA" ]; then 
+		ffmpeg -i $NAZWA -s "$WIDTH"x"$HEIGHT" "$NAZWA_PLIKU"_"$WIDTH"x"$HEIGHT"."$NAZWA_FORMATU"
+	    else
+		zenity --error --text "Nazwa pliku jest pusta"
+	    fi
+	   ;;
+	$M9)
+	    if [ -n "$NAZWA" ]; then 
+		ffplay $NAZWA
+	    else
+		zenity --error --text "Nazwa pliku jest pusta"
+	    fi
+	   ;;
+	$M10)
+	    OPT=10
+	    ;;
+    esac
+done
